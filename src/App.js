@@ -6,9 +6,12 @@ import Home from './component/Home';
 import Store from './component/Store';
 import About from './component/About';
 import Navbarr from './component/Navbarr';
+import ShoppingCartProvider from './Context/ShoppingCartContext';
 
 function App() {
-  return (  <>
+  return (
+
+  <ShoppingCartProvider>
   < Navbarr/>
   <Container className="mb-4">
 
@@ -19,9 +22,11 @@ function App() {
 
    </Routes>
  </Container>
+ </ShoppingCartProvider>
   
   
-  </>);
+  
+  );
 
 
   
