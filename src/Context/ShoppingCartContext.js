@@ -68,6 +68,7 @@
 
 
 import {  createContext, useContext, useState } from "react";
+import ShoppingCart from "../component/ShoppingCart";
 
 const ShoppingCartContext = createContext({});
 
@@ -121,6 +122,7 @@ const ShoppingCartProvider = ( {children} ) => {
       }}
     >
       { children }
+      <ShoppingCart/>
     </ShoppingCartContext.Provider>
   );
 };
