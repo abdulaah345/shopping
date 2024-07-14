@@ -2,6 +2,7 @@ import React from 'react'
 import { Button, Stack } from 'react-bootstrap'
 import storeitem from '../data/storeitem.json'
 import formatcCurrency from './formatcCurrency'
+import { useShoppingCart } from '../Context/ShoppingCartContext'
 const CartItems = ({id,quantity}) => {
   const item=storeitem.find((i)=>i.id===id)
   const {removeitem}=useShoppingCart()
@@ -12,7 +13,7 @@ const CartItems = ({id,quantity}) => {
 
     <img src={item.imgUrl} alt='cart-img' style={{width:"125px", height:"75px" ,objectFit:"cover"}}/>
 
-    <div className='me auto'>
+    <div className='me-auto'>
       <div>
         {item.name}{"  "}
         {quantity>1&&<span className='text-muted' style={{fontSize:"0.65rem"}}>x{quantity}</span>}
@@ -22,10 +23,13 @@ const CartItems = ({id,quantity}) => {
     {formatcCurrency(item.price)}
      </div>
       </div>
-      <div>  {formatcCurrency(item.price*quantity)}</div>
+      
     </div>
-    <Button variant='outline-danger' size='sm' onClick={()=>removeitem(id)}>
-         &times;
+    <div>  {formatcCurrency(item.price*quantity)}</div>
+    <Button  variant="outline-danger" className='ms-auto'
+        size="sm" onClick={()=>removeitem(id)}>
+                 &times;
+                 
     </Button>
     </Stack>
   )
